@@ -9,7 +9,6 @@ export const parseStringify = (value: unknown) => JSON.parse(JSON.stringify(valu
 
 export const convertFileToUrl = (file: File) => URL.createObjectURL(file);
 
-// FORMAT DATE TIME
 export const formatDateTime = (dateString: Date | string) => {
   const dateTimeOptions: Intl.DateTimeFormatOptions = {
     // weekday: "short", // abbreviated weekday name (e.g., 'Mon')

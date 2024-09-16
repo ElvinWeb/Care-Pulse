@@ -9,8 +9,8 @@ export default function Home() {
         <div className="sub-container max-w-[496px]">
           <Image
             src="/assets/icons/logo-full.svg"
-            height={1000}
             width={1000}
+            height={1000}
             alt="patient"
             className="mb-12 h-10 w-fit"
           />
@@ -33,7 +33,7 @@ export default function Home() {
         height={1000}
         width={1000}
         alt="patient"
-        className="side-img max-w-[50%]"
+        className="side-img max-w-[50%] h-full"
       />
     </div>
   );
