@@ -11,7 +11,7 @@ import CustomFormField, { FormFieldType } from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
 import { createUser } from "@/lib/actions/patient.actions";
 
-export function PatientForm() {
+export default function PatientForm() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
