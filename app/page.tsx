@@ -29,10 +29,10 @@ export default function Home() {
         </div>
       </section>
 
-      <img
+      <Image
         src="/assets/images/onboarding-img.png"
-        // height={1000}
-        // width={1000}
+        height={1000}
+        width={1000}
         alt="patient"
         className="side-img w-[50%] h-[1000px]"
       />

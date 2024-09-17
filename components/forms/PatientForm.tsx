@@ -24,20 +24,19 @@ export default function PatientForm() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof UserFormValidation>) {
+  async function onSubmit({
+    phone,
+    name,
+    email,
+  }: z.infer<typeof UserFormValidation>) {
     setIsLoading(true);
 
     try {
-      const userData = {
-        name: values.name,
-        email: values.email,
-        phone: values.phone,
-      };
+      const userData = { phone, name, email };
 
       const newUser = await createUser(userData);
 
       if (newUser) router.push(`/patients/${newUser.$id}/register`);
-
     } catch (error) {
       console.log(error);
     }

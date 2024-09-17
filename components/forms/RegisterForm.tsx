@@ -1,9 +1,10 @@
 "use client";
 
 import { Form, FormControl } from "@/components/ui/form";
-import { createUser, registerPatient } from "@/lib/actions/patient.actions";
+import { registerPatient } from "@/lib/actions/patient.actions";
 import { PatientFormValidation } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -15,12 +16,11 @@ import {
   PatientFormDefaultValues,
 } from "../../constants/index";
 import CustomFormField, { FormFieldType } from "../CustomFormField";
-import SubmitButton from "../SubmitButton";
-import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
-import { Label } from "../ui/label";
-import { SelectItem } from "../ui/select";
-import Image from "next/image";
 import FileUploader from "../FileUploader";
+import SubmitButton from "../SubmitButton";
+import { Label } from "../ui/label";
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { SelectItem } from "../ui/select";
 
 export default function RegisterForm({ user }: { user: User }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -64,10 +64,11 @@ export default function RegisterForm({ user }: { user: User }) {
         identificationDocument: formData,
       };
 
-      //@ts-ignore
       const newPatient = await registerPatient(patientData);
 
-      if (newPatient) router.push(`patients/${user.$id}/new-appointment`);
+      if (newPatient) router.push(`/patients/${user.$id}/new-appointment`);
+
+      
     } catch (error) {
       console.log(error);
     }

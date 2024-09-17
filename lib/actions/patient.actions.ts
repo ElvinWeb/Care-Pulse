@@ -33,7 +33,7 @@ export const createUser = async function (user: CreateUserParams) {
 
       return existingUser.users[0];
     }
-    console.error("An error occurred while creating a new user:", error);
+    console.error(error);
   }
 };
 
@@ -43,10 +43,7 @@ export const getUser = async function (userId: string) {
 
     return parseStringify(user);
   } catch (error) {
-    console.error(
-      "An error occurred while retrieving the user details:",
-      error
-    );
+    console.error(error);
   }
 };
 
@@ -79,6 +76,20 @@ export const registerPatient = async function ({
     );
 
     return parseStringify(newPatient);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getPatient = async function (userId: string) {
+  try {
+    const patients = await databases.listDocuments(
+      DATABASE_ID!,
+      PATIENT_COLLECTION_ID!,
+      [Query.equal("userId", userId)]
+    );
+
+    return parseStringify(patients.documents[0]);
   } catch (error) {
     console.log(error);
   }
