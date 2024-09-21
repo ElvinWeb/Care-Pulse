@@ -7,8 +7,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import CustomFormField, { FormFieldType } from "../CustomFormField";
-import SubmitButton from "../SubmitButton";
+import { FormFieldType, CustomFormField } from "../CustomFormField";
+import { SubmitButton } from "../SubmitButton";
 import { createUser } from "@/lib/actions/patient.actions";
 
 export default function PatientForm() {

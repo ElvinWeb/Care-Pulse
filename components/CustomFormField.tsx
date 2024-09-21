@@ -2,7 +2,7 @@ import {
   Select,
   SelectContent,
   SelectTrigger,
-  SelectValue
+  SelectValue,
 } from "@/components/ui/select";
 import { E164Number } from "libphonenumber-js";
 import Image from "next/image";
@@ -58,7 +58,6 @@ const RenderField = function ({
   const { fieldType, iconSrc, iconAlt, placeholder, name, label } = props;
 
   switch (fieldType) {
-
     case FormFieldType.INPUT:
       return (
         <div className="flex rounded-md border border-dark-500 bg-dark-400">
@@ -171,8 +170,7 @@ const RenderField = function ({
   }
 };
 
-export default function CustomFormField(props: CustomProps) {
-  
+export const CustomFormField = (props: CustomProps) => {
   const { control, name, label, fieldType } = props;
 
   return (
@@ -192,4 +190,4 @@ export default function CustomFormField(props: CustomProps) {
       )}
     />
   );
-}
+};

@@ -15,9 +15,9 @@ import {
   IdentificationTypes,
   PatientFormDefaultValues,
 } from "../../constants/index";
-import CustomFormField, { FormFieldType } from "../CustomFormField";
-import FileUploader from "../FileUploader";
-import SubmitButton from "../SubmitButton";
+import { FormFieldType, CustomFormField } from "../CustomFormField";
+import { FileUploader } from "../FileUploader";
+import { SubmitButton } from "../SubmitButton";
 import { Label } from "../ui/label";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { SelectItem } from "../ui/select";
@@ -67,8 +67,6 @@ export default function RegisterForm({ user }: { user: User }) {
       const newPatient = await registerPatient(patientData);
 
       if (newPatient) router.push(`/patients/${user.$id}/new-appointment`);
-
-      
     } catch (error) {
       console.log(error);
     }

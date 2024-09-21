@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { ReactNode } from "react";
 import { Plus_Jakarta_Sans as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import type { Metadata } from "next";
+import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 

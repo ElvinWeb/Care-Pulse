@@ -49,7 +49,7 @@ export const PasskeyModal = () => {
     router.push("/");
   };
 
-  const validatePasskey = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const validatePasskey = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     if (passkey === process.env.NEXT_PUBLIC_ADMIN_PASSKEY) {
