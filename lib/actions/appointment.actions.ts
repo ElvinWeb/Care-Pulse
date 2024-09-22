@@ -5,10 +5,12 @@ import {
   APPOINTMENT_COLLECTION_ID,
   DATABASE_ID,
   databases,
+  messaging,
 } from "../appwrite.config";
 import { revalidatePath } from "next/cache";
 import { formatDateTime, parseStringify } from "../utils";
 import { Appointment } from "@/types/appwrite.types";
+import { parse } from "path";
 
 export const createAppointment = async function (
   appointment: CreateAppointmentParams
@@ -54,6 +56,8 @@ export const updateAppointment = async function ({
             formatDateTime(appointment.schedule!, timeZone).dateTime
           } is cancelled. Reason:  ${appointment.cancellationReason}`
     }.`;
+
+    await sendSMSNotification(userId, smsMessage);
 
     revalidatePath("/admin");
     return parseStringify(updatedAppointment);
@@ -115,6 +119,22 @@ export const getAppoinmentList = async function () {
     };
 
     return parseStringify(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const sendSMSNotification = async (userId: string, content: string) => {
+  try {
+    const message = await messaging.createSms(
+      ID.unique(),
+      content,
+      [],
+      [userId]
+    );
+
+    return parseStringify(message);
+    
   } catch (error) {
     console.log(error);
   }
